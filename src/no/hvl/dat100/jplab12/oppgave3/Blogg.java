@@ -134,12 +134,14 @@ public class Blogg {
 	 * @return {@summary slette noe == null?}
 	 */
 	public boolean slett(Innlegg innlegg) {
-		for (int i = 0; i < innleggTabell.length; i++) {
-			if (finnes(innlegg)) {
-				innlegg = null;
+		int pos = finnInnlegg(innlegg);
+		
+			if (pos == innlegg.getId()) {
+			innleggTabell[pos] = null;
+			nesteLedig--;
 				return true;
 			}
-		}
+		
 		return false;
 	}
 
